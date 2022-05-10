@@ -3,23 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 15:26:50 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/02 16:54:09 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/05/10 16:49:12 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/phonebook.hpp"
+#include "../include/annuaire.hpp"
 
-int phonebook()
+
+std::string	toup(std::string command)
 {
-	std::cout << "CHOICE: ";
-	getline(std::cin, /* NAME THE VARIABLE */);
+	int	i = -1;
+	while (command[++i])
+		command[i] = toupper(command[i]);
+	return (command);
 }
 
 int	main(int ac, char **av)
 {
-	phonebook();
+	Annuaire 	annuaire;
+	bool		run = true;
+	std::string	command;
+	
+	annuaire.menu();
+	while (run)
+	{
+		std::cout << "Menu -> ";
+		getline(std::cin, command);
+		if (std::cin.eof())
+			return (1);
+		command = toup(command);
+		if (command == "ADD")
+			annuaire.add();
+		else if (command == "SEARCH")
+			annuaire.search_menu();
+		else if (command == "EXIT")
+		{std::cout << "Thanks for using me ! Good bye !!" << std::endl; run = false;}
+	}
 	return 0;
 }
