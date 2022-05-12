@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:52:29 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/11 16:14:46 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/05/12 01:44:04:03 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ HumanA::~HumanA()
 
 void HumanA::attack()
 {
-	std::cout << this->name << " attack with their" << &this->weapon << std::endl;
+	std::cout << this->name << " attack with their " << this->weapon.getType() << std::endl;
 }
 
 Weapon&	HumanA::getWeapon(void)

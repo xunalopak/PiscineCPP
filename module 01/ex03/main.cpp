@@ -6,13 +6,12 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:06:07 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/11 16:07:48 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/05/12 02:01:33 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"
-#include "Weapon.hpp"
 
 int main()
 {
