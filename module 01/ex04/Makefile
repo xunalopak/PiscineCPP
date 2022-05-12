@@ -6,7 +6,7 @@
 #    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 02:43:58 by rchampli          #+#    #+#              #
-#    Updated: 2022/05/12 18:02:10 by rchampli         ###   ########.fr        #
+#    Updated: 2022/05/12 19:21:15 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ SRC = main.cpp
 
 CC = g++
 
-FLAG = -Werror -Wall -Wextra -O3 -std=c++98
+FLAG = -Werror -Wall -Wextra -O2 -std=c++98
 
-INCLUDES =
+INCLUDES = Replace.hpp
 
 OBJS	= $(SRC:.cpp=.o)
 

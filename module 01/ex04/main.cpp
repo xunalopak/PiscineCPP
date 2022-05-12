@@ -6,47 +6,86 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:17:16 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/12 18:01:51 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/05/12 19:44:23 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sys/stat.h>
+#include "Replace.hpp"
 
-inline int file_exist(std::string& file_name)
+CppSed::CppSed( void )
 {
-	struct stat buf;
-	return (stat(file_name.c_str(), &buf) == 0);
 }
-
-bool check_arg(char **av)
+CppSed::~CppSed( void )
 {
-	std::string str_check;
-
-	for (int ac = 1; ac < 4; ac++)
+}
+bool	CppSed::setFile( std::string newFile )
+{
+	if (this->inputFileStream.is_open())
+		this->inputFileStream.close();
+	if (newFile == "")
 	{
-		str_check.append(av[ac]);
-		if (!str_check.compare(""))
-			return (false);
-		str_check.clear();
+		std::cerr << "The file to open can't be an empty string" << std::endl;
+		return (false);
 	}
-	str_check.append(av[1]);
-	if (std::cout << file_exist(str_check) << std::endl)
-		std::cout << str_check<< std::endl;
-	str_check.clear();
+	this->inputFileStream.open(newFile.c_str());
+	this->fileName = newFile;
+	std::cout << "Input file set to " << newFile << std::endl;
 	return (true);
 }
-
-int	main(int ac, char **av)
+bool	CppSed::replace(std::string stringToReplace, std::string replacement)
 {
-	if (ac != 4)
-		std::cout << "Error in argument" << std::endl;
-	else
+	std::string	result;
+	size_t		toReplaceLen = stringToReplace.length();
+	if (stringToReplace == "" || replacement == "")
 	{
-		if (!check_arg(av))
-			return (1);
+		std::cerr << "Strings can't be empty" << std::endl;
+		return (false);
 	}
-	return (0);
+	result.assign(std::istreambuf_iterator<char>(this->inputFileStream),
+			std::istreambuf_iterator<char>());
+	for (size_t pos = 0; pos < result.length(); pos++)
+	{
+		if (result.compare(pos, toReplaceLen, stringToReplace) == 0)
+		{
+			result.erase(pos, toReplaceLen);
+			result.insert(pos, replacement);
+			/* result.replace(pos, toReplaceLen, replacement); */
+		}
+	}
+	this->outputToFile(result);
+	return (true);
+}
+void	CppSed::outputToFile( std::string fileContent )
+{
+	std::ofstream	outputFileStream;
+	std::string		outputFileName = this->fileName;
+	std::transform(outputFileName.begin(), outputFileName.end(),
+			outputFileName.begin(), ::toupper);
+	outputFileName += ".replace";
+	outputFileStream.open(outputFileName.c_str());
+	std::cout << "Writing modified content to file \"" << outputFileName
+		<< "\"" << std::endl;
+	outputFileStream << fileContent;
+}
+
+void	printUsage(void)
+{
+	std::cout << "./cppSed fileName stringToReplace replacement" << std::endl;
+}
+int	printError(std::string errorMsg)
+{
+	if (errorMsg != "")
+		std::cerr << "Error: " << errorMsg << std::endl;
+	printUsage();
+	return (1);
+}
+int	main(int argc, char **argv)
+{
+	CppSed sed;
+	if (argc != 4)
+		return (printError("Wrong number of arguments"));
+	if (!sed.setFile(argv[1]))
+		return (printError(""));
+	if (!sed.replace(argv[2], argv[3]))
+		return (printError(""));
 }
