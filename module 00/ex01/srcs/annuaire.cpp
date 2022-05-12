@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annuaire.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:07:02 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/10 16:49:20 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/05/12 03:04:10 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void Annuaire::menu(void)
 void Annuaire::add(void)
 {
 	if (this->contact_amount == 8)
-		contact_amount = 0;
+		{contact_amount = 0; loop = 1;}
 	else if (this->contacts[this->contact_amount].set_info(this->contact_amount + 1))
 		this->contact_amount++;
 }
@@ -41,8 +41,12 @@ void Annuaire::display_menu(void)
 		std::cout << '|' << std::setw(10) << this->Field_menu[i];
 	}
 	std::cout << '|' << std::endl;
-	for (int i = 0; i < this->contact_amount; i++)
-		this->contacts[i].display_menu();
+	if (loop == 0)
+		for (int i = 0; i < this->contact_amount; i++)
+			this->contacts[i].display_menu();
+	else if (loop == 1)
+		for (int i = 0; i < 8; i++)
+				this->contacts[i].display_menu();
 }
 
 void Annuaire::search_menu(void)

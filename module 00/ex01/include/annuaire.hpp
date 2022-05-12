@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annuaire.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 15:27:00 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/10 16:20:30 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/05/12 03:01:32 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Annuaire
 private:
 	Contact contacts[8];
 	int		contact_amount;
+	int		loop = 0;
 
 	std::string Field_menu[4] = {
 	"Index",

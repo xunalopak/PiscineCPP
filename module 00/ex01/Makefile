@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 14:22:12 by rchampli          #+#    #+#              #
-#    Updated: 2022/05/10 14:34:25 by rchampli         ###   ########.fr        #
+#    Updated: 2022/05/12 02:56:24 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = srcs/main.cpp\
 
 CC = g++
 
-FLAG = -Werror -Wall -Wextra -std=c++98
+FLAG = -Werror -Wall -Wextra -std=c++11
 
 INCLUDES = include/annuaire.hpp include/contact.hpp
 
@@ -27,9 +27,9 @@ OBJS	= $(SRC:.cpp=.o)
 all:		$(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES)
-			@$(CC) -o $(NAME) $(OBJS)
+			@$(CC) $(FLAG) -o $(NAME) $(OBJS)
 %.o: %.cpp $(INCLUDES)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAG) -c $< -o $@
 
 clean:
 			@rm -f $(OBJS)

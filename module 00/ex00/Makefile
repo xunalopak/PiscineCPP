@@ -6,7 +6,7 @@
 #    By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 12:34:10 by rchampli          #+#    #+#              #
-#    Updated: 2022/05/02 12:58:06 by rchampli         ###   ########.fr        #
+#    Updated: 2022/05/12 02:16:31 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ OBJS	= $(SRC:.cpp=.o)
 all:		$(NAME)
 
 $(NAME): $(OBJS)
-			@$(CC) -o $(NAME) $(OBJS)
+			@$(CC) $(FLAG) -o $(NAME) $(OBJS)
+%.o: %.cpp $(INCLUDES)
+	$(CC) $(FLAG) -c $< -o $@
 
 clean:
 			@rm -f $(OBJS)

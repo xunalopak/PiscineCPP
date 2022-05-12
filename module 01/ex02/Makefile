@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 02:43:58 by rchampli          #+#    #+#              #
-#    Updated: 2022/05/11 14:54:54 by rchampli         ###   ########.fr        #
+#    Updated: 2022/05/12 02:17:22 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,9 @@ OBJS	= $(SRC:.cpp=.o)
 all:		$(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES)
-			@$(CC) -o $(NAME) $(OBJS)
+			@$(CC) $(FLAG) -o $(NAME) $(OBJS)
 %.o: %.cpp $(INCLUDES)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAG) -c $< -o $@
 
 clean:
 			@rm -f $(OBJS)

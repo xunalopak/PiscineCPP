@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 15:26:50 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/10 16:49:12 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/05/12 02:48:30 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ std::string	toup(std::string command)
 	return (command);
 }
 
-int	main(int ac, char **av)
+int	main(void)
 {
 	Annuaire 	annuaire;
 	bool		run = true;
