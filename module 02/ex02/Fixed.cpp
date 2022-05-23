@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 01:04:04 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/13 02:41:44 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/05/23 16:26:12 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,54 @@ float Fixed::toFloat(void) const
 	int power = pow(2, this->number_fractal);
 	float result = (float)this->ifixe / power;
 	return (result);
+}
+
+bool Fixed::operator>(Fixed& rhs)
+{
+	return (this->getRawBits() > rhs.getRawBits());
+}
+
+bool Fixed::operator<(Fixed& rhs)
+{
+	return (*this < rhs);
+}
+
+bool Fixed::operator>=(Fixed& rhs)
+{
+	return (!(*this > rhs));
+}
+
+bool Fixed::operator<=(Fixed& rhs)
+{
+	return (!(*this < rhs));
+}
+
+bool Fixed::operator==(Fixed& rhs)
+{
+	return (this->getRawBits() == rhs.getRawBits());
+}
+
+bool Fixed::operator!=(Fixed& rhs)
+{
+	return (!(*this == rhs));
+}
+
+Fixed Fixed::operator+(Fixed& rhs)
+{
+	Fixed rtn;
+
+	rtn.setRawBits(this->getRawBits() + rhs.getRawBits());
+
+	return (rtn);
+}
+
+Fixed Fixed::operator-(Fixed& rhs)
+{
+	
+}
+
+std::ostream &    operator<<( std::ostream & ostr, Fixed const & instance)
+{
+    ostr << instance.toFloat();
+    return (ostr);
 }

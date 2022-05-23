@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.Hpp                                          :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 01:04:11 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/13 02:37:27 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/05/23 15:50:54 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ public:
 	float toFloat(void) const;
 	int toInt(void) const;
 };
+std::ostream &    operator<<( std::ostream & ostr, Fixed const & instance);
 
 #endif
