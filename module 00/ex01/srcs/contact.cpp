@@ -6,11 +6,26 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 13:55:29 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/10 16:45:15 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/06/17 17:39:40 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/annuaire.hpp"
+
+enum	Field{
+	FirstName = 0,
+	LastName,
+	NickName,
+	PhoneNumber,
+	DarkSecret
+};
+const std::string Field_name[5] = {
+	"FirstName",
+	"LastName",
+	"NickName",
+	"PhoneNumber",
+	"DarkSecret"
+};
 
 Contact::Contact()
 {
@@ -57,5 +72,5 @@ void Contact::display(void)
 {
 	std::cout << "Contact: " << this->index << std::endl;
 	for (int i = FirstName; i <= DarkSecret; i++)
-		std::cout << Contact::Field_name[i] << ':' << this->information[i] << std::endl;
+		std::cout << Field_name[i] << ':' << this->information[i] << std::endl;
 }

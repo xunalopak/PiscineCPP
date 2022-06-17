@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annuaire.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 15:27:00 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/12 03:01:32 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/06/17 17:52:39 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+# include <sstream>
 # include "contact.hpp"
 
 class Annuaire
@@ -23,18 +24,13 @@ class Annuaire
 private:
 	Contact contacts[8];
 	int		contact_amount;
-	int		loop = 0;
+	int		loop;
 
-	std::string Field_menu[4] = {
-	"Index",
-	"First Name",
-	"Last Name",
-	"Nickname"
-	};
+	
 public:
 	Annuaire();
 	virtual ~Annuaire();
-
+	
 	void menu(void);
 	void add(void);
 	void display_menu(void);
