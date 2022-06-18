@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 22:00:13 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/17 22:00:14 by rchampli         ###   ########.fr       */
+/*   Created: 2022/06/17 22:00:00 by rchampli          #+#    #+#             */
+/*   Updated: 2022/06/18 16:12:44 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_H
 #define FORM_H
 
-#include <iostream>
-#include <string>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
 public:
     Form(const std::string &name, int signGrade, int execGrade);
     Form(const Form &src);
-    ~Form();
-    Form&operator=(const Form &other);
+    virtual ~Form();
+    
 
     class GradeTooHightException : public std::exception
     { 
@@ -35,20 +35,23 @@ public:
     public: 
         virtual const char *what() const throw(){return("grade is too low");}
     }; 
-    class GradeUnexecutedException : public std::exception
-    { 
-    public: 
-        virtual const char *what() const throw(){return("cannot be executed");}
-    }; 
+    class FormNotSignedException: public std::exception 
+    {
+	public:
+		virtual const char* what() const throw() {return ("form is not signed");}
+	};
 
-    const std::string     &getName() const;
-    bool                isSigned() const;
-    int                getSignGrade() const;
-    int                getExecGrade() const;
-    void beSigned(Bureaucrat &Bureaucrat);
+    const std::string    &getName() const;
+    bool                 isSigned() const;
+    int                  getSignGrade() const;
+    int                  getExecGrade() const;
+    void                 beSigned(Bureaucrat const &bureaucrat);
+    virtual void         execute(const Bureaucrat &bureaucrat) const;
 
 private:
-    const std::string name;
+    Form&operator=(const Form &other);
+    
+    std::string name;
     bool sign;
     const int signGrade;
     const int execGrade;

@@ -6,19 +6,19 @@
 #    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 12:50:59 by rchampli          #+#    #+#              #
-#    Updated: 2022/06/17 18:00:10 by rchampli         ###   ########.fr        #
+#    Updated: 2022/06/17 22:04:50 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Bureaucrat
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = $(shell find . -type f -name "*.cpp" | cut -c 3-)
 
 CC = g++
 
 FLAG = -Werror -Wall -Wextra -O2 -std=c++98
 
-INCLUDES = Bureaucrat.hpp Form.hpp
+INCLUDES = $(shell find . -type f -name "*.hpp" | cut -c 3-)
 
 OBJS	= $(SRC:.cpp=.o)
 

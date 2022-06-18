@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 13:52:58 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/11 13:00:23 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/06/18 14:28:46 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 
 #include <iostream>
 #include <string>
+#include "Form.hpp"
 
 class Bureaucrat
 {
 public:
     Bureaucrat(const std::string name, unsigned int grade);
-    // Bureaucrat(const Bureaucrat &src);
+    Bureaucrat(const Bureaucrat &src);
     virtual ~Bureaucrat();
 
     const std::string &getName() const;
-    const unsigned int &getGrade() const;
+    const int &getGrade() const;
     
     void gradeUp();
     void gradeDown();
+    void signForm(Form& form);
 
     class GradeTooHightException : public std::exception
     { 
@@ -41,10 +43,10 @@ public:
     }; 
 
 private:
-    // Bureaucrat&operator=(const Bureaucrat &other);
+    Bureaucrat&operator=(const Bureaucrat &other);
     
     const std::string name;
-    unsigned int grade;
+    int grade;
 protected:
 
 };

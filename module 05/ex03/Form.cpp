@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:00:25 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/17 18:30:29 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/06/18 16:14:01 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Form::Form(Form const &src): name(src.name), signGrade(src.signGrade), execGrade
 }
 
 Form::Form(const std::string &name, int signGrade, int execGrade): name(name), sign(false), signGrade(signGrade), execGrade(execGrade) {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Form constructor called" << std::endl;
 	if (signGrade < 1)
 		throw GradeTooLowException();
 	if (signGrade > 150)
@@ -33,7 +33,6 @@ Form::Form(const std::string &name, int signGrade, int execGrade): name(name), s
 Form::~Form()
 {
 	std::cout << "Destructor called for Form" << std::endl;
-	return;
 }
 
 Form & Form::operator=(Form const & other)
@@ -63,12 +62,19 @@ int Form::getExecGrade() const
 	return this->execGrade;
 }
 
-void Form::beSigned(Bureaucrat &Bureaucrat)
-{
-	if (Bureaucrat.getGrade() <= this->signGrade)
-		this->sign = true;
-	else
+void Form::beSigned(Bureaucrat const &bureaucrat) {
+	if (bureaucrat.getGrade() > this->signGrade)
 		throw GradeTooLowException();
+	this->sign = true;
+}
+
+void Form::execute(const Bureaucrat &executor) const
+{
+	if (executor.getGrade() > this->getExecGrade())
+		throw GradeTooLowException();
+	if (!this->isSigned())
+		throw FormNotSignedException();
+	std::cout << this->name << " has been executed" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &form) {
