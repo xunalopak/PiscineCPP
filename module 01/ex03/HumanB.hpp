@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:43:33 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/12 02:06:13 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/06/29 02:19:37 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,15 @@
 #include <string>
 #include "Weapon.hpp"
 
-class HumanB
-{
+class HumanB {
 private:
 	std::string name;
-	Weapon		*weapon;
+	Weapon *weapon;
 public:
-	HumanB(std::string name);
-	~HumanB();
+	HumanB(const std::string &name);
+	void setWeapon(Weapon &weapon);
 
 	void attack();
-	void setWeapon(Weapon &newWeapon);
 };
 
 #endif
