@@ -6,86 +6,67 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:17:16 by rchampli          #+#    #+#             */
-/*   Updated: 2022/05/12 19:44:23 by rchampli         ###   ########.fr       */
+/*   Updated: 2022/06/29 02:28:09 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Replace.hpp"
+#include <iostream>
+#include <string>
+#include <fstream>
 
-CppSed::CppSed( void )
+int main (int argc, char **argv)
 {
-}
-CppSed::~CppSed( void )
-{
-}
-bool	CppSed::setFile( std::string newFile )
-{
-	if (this->inputFileStream.is_open())
-		this->inputFileStream.close();
-	if (newFile == "")
-	{
-		std::cerr << "The file to open can't be an empty string" << std::endl;
-		return (false);
-	}
-	this->inputFileStream.open(newFile.c_str());
-	this->fileName = newFile;
-	std::cout << "Input file set to " << newFile << std::endl;
-	return (true);
-}
-bool	CppSed::replace(std::string stringToReplace, std::string replacement)
-{
-	std::string	result;
-	size_t		toReplaceLen = stringToReplace.length();
-	if (stringToReplace == "" || replacement == "")
-	{
-		std::cerr << "Strings can't be empty" << std::endl;
-		return (false);
-	}
-	result.assign(std::istreambuf_iterator<char>(this->inputFileStream),
-			std::istreambuf_iterator<char>());
-	for (size_t pos = 0; pos < result.length(); pos++)
-	{
-		if (result.compare(pos, toReplaceLen, stringToReplace) == 0)
-		{
-			result.erase(pos, toReplaceLen);
-			result.insert(pos, replacement);
-			/* result.replace(pos, toReplaceLen, replacement); */
-		}
-	}
-	this->outputToFile(result);
-	return (true);
-}
-void	CppSed::outputToFile( std::string fileContent )
-{
-	std::ofstream	outputFileStream;
-	std::string		outputFileName = this->fileName;
-	std::transform(outputFileName.begin(), outputFileName.end(),
-			outputFileName.begin(), ::toupper);
-	outputFileName += ".replace";
-	outputFileStream.open(outputFileName.c_str());
-	std::cout << "Writing modified content to file \"" << outputFileName
-		<< "\"" << std::endl;
-	outputFileStream << fileContent;
-}
-
-void	printUsage(void)
-{
-	std::cout << "./cppSed fileName stringToReplace replacement" << std::endl;
-}
-int	printError(std::string errorMsg)
-{
-	if (errorMsg != "")
-		std::cerr << "Error: " << errorMsg << std::endl;
-	printUsage();
-	return (1);
-}
-int	main(int argc, char **argv)
-{
-	CppSed sed;
 	if (argc != 4)
-		return (printError("Wrong number of arguments"));
-	if (!sed.setFile(argv[1]))
-		return (printError(""));
-	if (!sed.replace(argv[2], argv[3]))
-		return (printError(""));
+	{
+		std::cerr << "Usage: ./executable <filename> <to_replace> <replacement>" << std::endl;
+		return 1;
+	}
+
+	std::string filename	= argv[1];
+	std::string s1			= argv[2];
+	std::string s2			= argv[3];
+
+	if (filename == "" || s1 == "" || s2 == "")
+	{
+		std::cout << "filename must not be an empty string" << std::endl;
+		return 1;
+	}
+
+	std::ifstream input(filename.c_str());
+
+	if (!input.is_open())
+	{
+		std::cout << "could not open input file" << std::endl;
+		return 1;
+	}
+
+	std::ofstream output((filename + ".replace").c_str());
+
+	if (!output.is_open())
+	{
+		std::cerr << "could not open output file" << std::endl;
+		input.close();
+		return 1;
+	}
+
+	std::string content((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
+	std::string new_content = "";
+
+	input.open(filename.c_str());
+
+	for (size_t i = 0; i < content.length();)
+	{
+		if (content.compare(i, s1.length(), s1) == 0)
+		{
+			content.erase(i, s1.length());
+			new_content.append(s2);
+			continue;
+		}
+		new_content.append(sizeof(char), content[i++]);
+	}
+
+	output << new_content;
+
+	std::cerr << "Replaced every occurence of '" << s1 << "' with '"
+		<< s2 << "' (output file: '" << filename << ".replace')" << std::endl;
 }

@@ -6,19 +6,19 @@
 #    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 02:43:58 by rchampli          #+#    #+#              #
-#    Updated: 2022/05/12 19:21:15 by rchampli         ###   ########.fr        #
+#    Updated: 2022/06/29 02:25:29 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = sed
 
-SRC = main.cpp 
+SRC = main.cpp
 
 CC = g++
 
 FLAG = -Werror -Wall -Wextra -O2 -std=c++98
 
-INCLUDES = Replace.hpp
+INCLUDES =
 
 OBJS	= $(SRC:.cpp=.o)
 
