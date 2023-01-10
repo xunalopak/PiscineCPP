@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:52:15 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/21 18:25:36 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:22:14 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ static bool	isValidToFloat( double number )
 			|| number == std::numeric_limits<double>::infinity()
 			|| number == -std::numeric_limits<double>::infinity()
 			|| std::isnan(number));
+}
+
+Convertor::Convertor(): input(""), type("-") {
+	this->iValue = 0;
+	this->cValue = 0;
+	this->fValue = 0;
+	this->dValue = 0;
 }
 
 Convertor::Convertor(std::string input): input(input), type("-") {

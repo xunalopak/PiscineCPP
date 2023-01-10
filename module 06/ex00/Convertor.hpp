@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:52:17 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/21 18:16:26 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:21:09 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 class Convertor
 {
 public:
+	Convertor();
     Convertor(std::string input);
     Convertor(const Convertor &src);
     virtual ~Convertor();

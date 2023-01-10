@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:47:05 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/23 18:47:15 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 23:03:27 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,7 @@ int		main( void )
 	base = generate();
 	identify(base);
 	delete base;
-	std::cout << std::endl << "Identifying with references" << std::endl
-		<< std::endl;
+	std::cout << std::endl << "Identifying with references" << std::endl << std::endl;
 	base = generate();
 	identify(*base);
 	delete base;
