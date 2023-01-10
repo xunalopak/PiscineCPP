@@ -6,6 +6,7 @@
 class PresidentialPardonForm : public Form
 {
 public:
+    PresidentialPardonForm();
     PresidentialPardonForm(const std::string &target);
     PresidentialPardonForm(const PresidentialPardonForm &src);
     virtual ~PresidentialPardonForm();
@@ -14,7 +15,6 @@ public:
     void execute(const Bureaucrat& executor) const;
 
 private:
-    std::string target;
 
 protected:
 

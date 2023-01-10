@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 13:52:53 by rchampli          #+#    #+#             */
-/*   Updated: 2023/01/10 01:34:06 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 03:28:40 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ Bureaucrat::Bureaucrat(Bureaucrat const &src)
 {
 	std::cout << "Copy construtor called for Bureaucrat" << std::endl;
 	*this = src;
+}
+
+Bureaucrat::Bureaucrat() : name("default"), grade(150)
+{
+	std::cout << "Default constructor called for Bureaucrat" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name)
@@ -79,6 +84,7 @@ void Bureaucrat::signForm(Form& form)
 void Bureaucrat::executeForm(const Form &form) {
 	try {
 		form.execute(*this);
+
 		std::cout << this->name + " executed " + form.getName() << std::endl;
 	} catch (Form::GradeTooLowException &e) {
 		std::cout << this->name + " could not execute " + form.getName() + " because " + e.what() << std::endl;

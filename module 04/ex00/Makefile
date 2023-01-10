@@ -6,7 +6,7 @@
 #    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 12:50:59 by rchampli          #+#    #+#              #
-#    Updated: 2022/06/07 20:29:50 by rchampli         ###   ########.fr        #
+#    Updated: 2023/01/10 01:42:06 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Polymorphe
 
 SRC = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
 
-CC = g++
+CC = c++
 
 FLAG = -Werror -Wall -Wextra -O2 -std=c++98
 

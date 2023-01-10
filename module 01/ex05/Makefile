@@ -6,7 +6,7 @@
 #    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 02:43:58 by rchampli          #+#    #+#              #
-#    Updated: 2022/05/12 21:35:56 by rchampli         ###   ########.fr        #
+#    Updated: 2023/01/10 01:42:06 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Harl
 
 SRC = main.cpp harl.cpp 
 
-CC = g++
+CC = c++
 
 FLAG = -Werror -Wall -Wextra -O2 -std=c++98
 

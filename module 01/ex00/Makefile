@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+         #
+#    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 02:43:58 by rchampli          #+#    #+#              #
-#    Updated: 2022/05/12 02:16:51 by rchampli         ###   ########.fr        #
+#    Updated: 2023/01/10 01:42:06 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Zombie
 
 SRC = main.cpp zombie.cpp newZombie.cpp randomChump.cpp
 
-CC = g++
+CC = c++
 
 FLAG = -Werror -Wall -Wextra -O3 -std=c++98
 

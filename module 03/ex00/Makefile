@@ -6,7 +6,7 @@
 #    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 12:50:59 by rchampli          #+#    #+#              #
-#    Updated: 2022/06/07 14:06:18 by rchampli         ###   ########.fr        #
+#    Updated: 2023/01/10 01:42:06 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = ClapTrap
 
 SRC = main.cpp ClapTrap.cpp
 
-CC = g++
+CC = c++
 
 FLAG = -Werror -Wall -Wextra -O2 -std=c++98
 

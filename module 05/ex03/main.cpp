@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 13:53:01 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/18 23:08:46 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 03:46:21 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int main(void) {
 	if (form)
 		delete form;
 	form = usefulIdiot.makeForm("shrubbery creation", "Danny");
+	paul.signForm(*form);
+	paul.executeForm(*form);
 	if (form)
 		delete form;
 	form = usefulIdiot.makeForm("robotomy request", "Adam");

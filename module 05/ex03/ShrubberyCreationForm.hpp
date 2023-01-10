@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 21:59:57 by rchampli          #+#    #+#             */
-/*   Updated: 2023/01/10 03:02:34 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 03:31:51 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class ShrubberyCreationForm: public Form
 {
 public:
+    ShrubberyCreationForm();
     ShrubberyCreationForm(const std::string &target);
     ShrubberyCreationForm(const ShrubberyCreationForm &src);
     ~ShrubberyCreationForm();

@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 13:52:58 by rchampli          #+#    #+#             */
-/*   Updated: 2023/01/10 02:09:25 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 03:28:28 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,17 @@
 #include <string>
 #include "Form.hpp"
 
+#define DEBUG "\033[1;36m"
+#define NOICE "\033[1;32m"
+#define ERROR "\033[1;31m"
+#define RESET "\033[0;0m"
+
 class Form;
 
 class Bureaucrat
 {
 public:
+    Bureaucrat();
     Bureaucrat(const std::string name, unsigned int grade);
     Bureaucrat(const Bureaucrat &src);
     virtual ~Bureaucrat();

@@ -6,7 +6,7 @@
 #    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 14:22:12 by rchampli          #+#    #+#              #
-#    Updated: 2022/06/17 17:22:16 by rchampli         ###   ########.fr        #
+#    Updated: 2023/01/10 01:42:06 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = srcs/main.cpp\
 		srcs/annuaire.cpp\
 		srcs/contact.cpp
 
-CC = g++
+CC = c++
 
 FLAG = -Werror -Wall -Wextra -std=c++98
 

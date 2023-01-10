@@ -6,22 +6,29 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:17:36 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/18 16:53:59 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 03:38:34 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src)
-: Form(src.getName(), src.getSignGrade(), src.getExecGrade()), target(src.target)
+: Form(src.getName(), src.getSignGrade(), src.getExecGrade(), src.getTarget())
 {
 	std::cout << "Copy construtor called for RobotomyRequestForm" << std::endl;
 	*this = src;
 	return;
 }
 
+RobotomyRequestForm::RobotomyRequestForm():
+Form("RobotomyRequestForm", 72, 45, "default")
+{
+	std::cout << "Default constructor called for RobotomyRequestForm" << std::endl;
+	return;
+}
+
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target):
-Form("RobotomyRequestForm", 72, 45), target(target)
+Form("RobotomyRequestForm", 72, 45, target)
 {
 	std::cout << "Default construtor called for RobotomyRequestForm" << std::endl;
 	return;
@@ -52,12 +59,12 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 	{
 		std::cout << "BRUUUUUTTTTTT" << std::endl;
 		std::cout << "BRUUUUUTTTTTT" << std::endl;
-		std::cout << this->target + " has been eliminated" << std::endl;
+		std::cout << this->getTarget() + " has been eliminated" << std::endl;
 	}
 	else
 	{	
 		std::cout << "BRUUUUUTTTTTT" << std::endl;
 		std::cout << "BRUUUUUTTTTTT" << std::endl;
-		std::cout << this->target + " survived, mission failed" << std::endl;
+		std::cout << this->getTarget() + " survived, mission failed" << std::endl;
 	}
 }
