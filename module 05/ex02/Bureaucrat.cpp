@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 13:52:53 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/18 16:01:20 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 03:28:40 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ Bureaucrat::Bureaucrat(Bureaucrat const &src)
 {
 	std::cout << "Copy construtor called for Bureaucrat" << std::endl;
 	*this = src;
+}
+
+Bureaucrat::Bureaucrat() : name("default"), grade(150)
+{
+	std::cout << "Default constructor called for Bureaucrat" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name)

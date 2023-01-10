@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 13:52:53 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/18 16:01:20 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 01:34:06 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void Bureaucrat::signForm(Form& form)
 void Bureaucrat::executeForm(const Form &form) {
 	try {
 		form.execute(*this);
-
 		std::cout << this->name + " executed " + form.getName() << std::endl;
 	} catch (Form::GradeTooLowException &e) {
 		std::cout << this->name + " could not execute " + form.getName() + " because " + e.what() << std::endl;

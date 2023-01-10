@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 21:59:57 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/18 16:16:15 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 03:02:34 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ public:
     ShrubberyCreationForm(const std::string &target);
     ShrubberyCreationForm(const ShrubberyCreationForm &src);
     ~ShrubberyCreationForm();
+    ShrubberyCreationForm&operator=(ShrubberyCreationForm const &other);
     
 
     class OutputFileException : public std::exception {
@@ -31,9 +32,6 @@ public:
 
     void execute(const Bureaucrat &executor) const;
 private:
-    ShrubberyCreationForm&operator=(ShrubberyCreationForm const &other);
-    
-    const std::string target;
 protected:
 
 };

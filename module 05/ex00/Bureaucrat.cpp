@@ -6,17 +6,20 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 13:52:53 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/17 18:25:22 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 01:16:33 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(Bureaucrat const &src)
+Bureaucrat::Bureaucrat(Bureaucrat const &src) : name(src.name), grade(src.grade)
 {
 	std::cout << "Copy construtor called for Bureaucrat" << std::endl;
-	*this = src;
-	return;
+}
+
+Bureaucrat::Bureaucrat() : name("default"), grade(150)
+{
+	std::cout << "Default construtor called for Bureaucrat" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name), grade(grade)
@@ -26,18 +29,18 @@ Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name),
 	else if (grade < 1)
 		throw GradeTooHightException();
 	std::cout << "Default construtor called for Bureaucrat" << std::endl;
-	return;
 }
 
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Destructor called for Bureaucrat" << std::endl;
-	return;
 }
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const & other)
 {
 	std::cout << "Assignement operator for Bureaucrat" << std::endl;
+	if (this == &other)
+		return *this;
 	this->grade = other.grade;
 	return *this;
 }

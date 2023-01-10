@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:00:25 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/17 18:30:29 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 01:17:17 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 Form::Form(Form const &src): name(src.name), signGrade(src.signGrade), execGrade(src.execGrade) 
 {
 	std::cout << "Copy construtor called for Form" << std::endl;
-	*this = src;
 }
 
-Form::Form(const std::string &name, int signGrade, int execGrade): name(name), sign(false), signGrade(signGrade), execGrade(execGrade) {
+Form::Form(): name("default"), sign(false), signGrade(150), execGrade(150)
+{
+	std::cout << "Default construtor called for Form" << std::endl;
+}
+
+Form::Form(const std::string &name, int signGrade, int execGrade): name(name), sign(false), signGrade(signGrade), execGrade(execGrade)
+{
 	std::cout << "Constructor called" << std::endl;
 	if (signGrade < 1)
 		throw GradeTooLowException();
@@ -33,7 +38,6 @@ Form::Form(const std::string &name, int signGrade, int execGrade): name(name), s
 Form::~Form()
 {
 	std::cout << "Destructor called for Form" << std::endl;
-	return;
 }
 
 Form & Form::operator=(Form const & other)

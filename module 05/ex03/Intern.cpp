@@ -4,19 +4,16 @@ Intern::Intern(Intern const &src)
 {
 	std::cout << "Copy construtor called for Intern" << std::endl;
 	*this = src;
-	return;
 }
 
 Intern::Intern()
 {
 	std::cout << "Default construtor called for Intern" << std::endl;
-	return;
 }
 
 Intern::~Intern()
 {
 	std::cout << "Destructor called for Intern" << std::endl;
-	return;
 }
 
 Intern & Intern::operator=(Intern const & other)

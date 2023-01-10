@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 13:52:58 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/18 16:10:45 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 03:28:28 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Form;
 class Bureaucrat
 {
 public:
+    Bureaucrat();
     Bureaucrat(const std::string name, unsigned int grade);
     Bureaucrat(const Bureaucrat &src);
     virtual ~Bureaucrat();

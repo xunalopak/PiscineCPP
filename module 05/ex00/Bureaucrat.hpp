@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 13:52:58 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/17 18:25:12 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 01:07:18 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 class Bureaucrat
 {
 public:
+    Bureaucrat();
     Bureaucrat(const std::string name, unsigned int grade);
     Bureaucrat(const Bureaucrat &src);
     virtual ~Bureaucrat();
+    Bureaucrat&operator=(const Bureaucrat &other);
 
     const std::string &getName() const;
     const unsigned int &getGrade() const;
@@ -41,7 +43,6 @@ public:
     }; 
 
 private:
-    Bureaucrat&operator=(const Bureaucrat &other);
     
     const std::string name;
     unsigned int grade;

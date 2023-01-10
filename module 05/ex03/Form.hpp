@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:00:00 by rchampli          #+#    #+#             */
-/*   Updated: 2022/06/18 16:12:44 by rchampli         ###   ########.fr       */
+/*   Updated: 2023/01/10 01:36:21 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Form
 public:
     Form(const std::string &name, int signGrade, int execGrade);
     Form(const Form &src);
-    virtual ~Form();
+    virtual ~Form() =0;
     
 
     class GradeTooHightException : public std::exception

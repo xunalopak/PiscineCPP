@@ -1,14 +1,20 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src):
-Form(src.getName(), src.getSignGrade(), src.getExecGrade()), target(src.target)
+Form(src.getName(), src.getSignGrade(), src.getExecGrade(), src.getTarget())
 {
 	std::cout << "Copy construtor called for PresidentialPardonForm" << std::endl;
 	*this = src;
 }
 
+PresidentialPardonForm::PresidentialPardonForm():
+Form("PresidentialPardonForm", 25, 5, "default")
+{
+	std::cout << "Default constructor called for PresidentialPardonForm" << std::endl;
+}
+
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target):
-Form("PresidentialPardonForm", 25, 5), target(target)
+Form("PresidentialPardonForm", 25, 5, target)
 {
 	std::cout << "Default construtor called for PresidentialPardonForm" << std::endl;
 }
@@ -31,5 +37,5 @@ void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 		throw GradeTooLowException();
 	if (!this->isSigned())
 		throw FormNotSignedException();
-	std::cout << this->target + " has been forgiven by Zaphod Beeblebrox" << std::endl;
+	std::cout << this->getTarget() + " has been forgiven by Zaphod Beeblebrox" << std::endl;
 }
