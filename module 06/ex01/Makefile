@@ -6,11 +6,11 @@
 #    By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 12:50:59 by rchampli          #+#    #+#              #
-#    Updated: 2023/01/10 01:42:06 by rchampli         ###   ########.fr        #
+#    Updated: 2023/01/10 21:14:44 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Convertor
+NAME = Serialization
 
 SRC = $(shell find . -type f -name "*.cpp" | cut -c 3-)
 
